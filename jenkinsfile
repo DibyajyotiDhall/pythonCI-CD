@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                withCredentials([gitUsernamePassword(credentialsId: 'git_pass', gitToolName: 'Default')]) {
+                    git credentialsId: 'git_pass', url: 'https://github.com/DibyajyotiDhall/pytest-intro-vs-M', branch: 'main'
+                }
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                git branch: 'main', url: 'https://github.com/DibyajyotiDhall/pytest-intro-vs-M'
+                sh 'docker build -t dibyajyotidhall/my-python-app:tag12 .'
+            }
+        }
+        stage('Docker push') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'dockercred1') {
+                        sh 'docker push dibyajyotidhall/my-python-app:tag12'
+                        sh "docker run -d -p 8081:80 dibyajyotidhall/my-python-app:tag12"
+                    }
+                }
+            }
+        }
+    }
+}
