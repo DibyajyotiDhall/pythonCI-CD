@@ -5,17 +5,17 @@ pipeline {
         stage('Checkout') {
             steps {
                 withCredentials([gitUsernamePassword(credentialsId: 'git_pass', gitToolName: 'Default')]) {
-                    git credentialsId: 'git_pass', url: 'https://github.com/DibyajyotiDhall/pytest-intro-vs-M', branch: 'main'
+                    git credentialsId: 'git_pass', url: 'https://github.com/DibyajyotiDhall/pythonCI-CD', branch: 'main'
                 }
             }
         }
         stage('Docker Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/DibyajyotiDhall/pytest-intro-vs-M'
+                git branch: 'main', url: 'https://github.com/DibyajyotiDhall/pythonCI-CD'
                 sh 'docker build -t dibyajyotidhall/my-python-app:tag12 .'
             }
         }
-        stage('Docker push') {
+        stage('Docker push dockerhub') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'dockercred1') {
@@ -25,5 +25,11 @@ pipeline {
                 }
             }
         }
+        stage('Docker Compose and depoly') {
+            steps {
+                sh 'docker-compose -f path/to/your/docker-compose.yml up -d'
+            }
+        }
     }
 }
+
