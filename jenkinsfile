@@ -20,7 +20,6 @@ pipeline {
                 script {
                     withDockerRegistry(credentialsId: 'dockercred1') {
                         sh 'docker push dibyajyotidhall/my-python-app:tag12'
-                        sh "docker run -d -p 8081:80 dibyajyotidhall/my-python-app:tag12"
                     }
                 }
             }
