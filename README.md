@@ -59,7 +59,7 @@ This Jenkins CI/CD pipeline is organized into the following stages:
 
 4. **Deploy:** Deploys the application to a target environment (e.g., AWS, Google Cloud, etc.).
 
-![Pipeline Screenshot](https://github.com/DibyajyotiDhall/pythonCI-CD/raw/main/screenshot.png)
+![Pipeline Screenshot](https://github.com/DibyajyotiDhall/pythonCI-CD/raw/main/Screenshot.png)
 
 ## License
 
