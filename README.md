@@ -1,7 +1,7 @@
 
 # Jenkins CI/CD Pipeline for [pythonCI-CD]
 
-This repository contains the Jenkins CI/CD pipeline configuration and related scripts for automating the build, test, and deployment processes of [Your Project Name]. The Jenkins pipeline is designed to streamline the development and release workflow, making it easier to deliver high-quality software.
+This repository contains the Jenkins CI/CD pipeline configuration and related scripts for automating the build, test, and deployment processes of [Your Project Name]. The Jenkins pipeline is designed to streamline the development and release workflow, making it easier to deliver high-.
 
 ## Table of Contents
 
